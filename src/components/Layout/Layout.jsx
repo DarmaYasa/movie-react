@@ -1,6 +1,9 @@
+import { useEffect, useState } from "react";
 import "./Layout.css";
 
 const Layout = ({ children }) => {
+  const [search, setSearch] = useState("");
+
   return (
     <>
       <header>
@@ -9,9 +12,18 @@ const Layout = ({ children }) => {
           <a href="/movies">Movies</a>
           <a href="/tv-shows">TV Shows</a>
         </nav>
-        <input type="text" name="search" />
+        <input
+          type="text"
+          name="search"
+          placeholder="Search..."
+          onChange={(e) => setSearch(e.target.value)}
+          value={search}
+        />
       </header>
-      <main>{children}</main>
+      <main>
+        {search}
+        {children}
+      </main>
     </>
   );
 };

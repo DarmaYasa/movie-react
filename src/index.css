@@ -14,3 +14,42 @@ body {
   padding: 0;
 }
 
+.container {
+    width: 100%;
+}
+
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (min-width: 640px) {
+    .container {
+        width: 640px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        width: 768px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        width: 1024px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .container {
+        width: 1280px;
+    }
+}
+
+@media (min-width: 1536px) {
+    .container {
+        width: 1536px;
+    }
+}
+

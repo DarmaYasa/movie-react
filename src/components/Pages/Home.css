@@ -1,11 +1,8 @@
 .movies-wrapper {
-    padding: 10px 30px;
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     row-gap: 10px;
     column-gap: 10px;
-    padding-top: 30px;
-    padding-bottom: 30px;
 }
 
 .movie-card {

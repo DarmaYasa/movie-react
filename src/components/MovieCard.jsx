@@ -1,6 +1,7 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
-const MovieCard = ({ posterPath, title, overview }) => {
+const MovieCard = ({ posterPath, title, overview, id }) => {
   const moreButtonStyle = {
     background: "none",
     boxShadow: "none",
@@ -8,16 +9,23 @@ const MovieCard = ({ posterPath, title, overview }) => {
     border: "none",
     cursor: "pointer",
   };
-  
+
   const [isMoreClick, setIsMoreClick] = useState(false);
   return (
     <div className="movie-card">
-      <img
-        className="cover"
-        src={`https://image.tmdb.org/t/p/w1280/${posterPath}`}
-        alt={title}
-      />
-      <h4 className="title">{title}</h4>
+      <Link to={`/movies/${id}`}>
+        <img
+          className="cover"
+          src={`https://image.tmdb.org/t/p/w1280/${posterPath}`}
+          alt={title}
+        />
+      </Link>
+      <Link
+        to={`/movies/${id}`}
+        style={{ textDecoration: "none", color: "inherit" }}
+      >
+        <h4 className="title">{title}</h4>
+      </Link>
       <p>
         {isMoreClick ? overview : overview?.substring(0, 60) + "..."}
         <button

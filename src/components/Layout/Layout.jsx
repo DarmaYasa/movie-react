@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./Layout.css";
+import { Link } from "react-router-dom";
 
 const Layout = ({ children }) => {
   const [search, setSearch] = useState("");
@@ -9,7 +10,9 @@ const Layout = ({ children }) => {
       <header>
         <div className="container mx-auto">
           <div className="header">
-            <h1>Movies App</h1>
+            <Link to="/">
+              <h1>Movies App</h1>
+            </Link>
             <nav>
               <a href="/movies">Movies</a>
               <a href="/tv-shows">TV Shows</a>

@@ -7,6 +7,7 @@ import MovieDetailPage from "./components/Pages/Movies/Detail.jsx";
 import TVShowDetailPage from "./components/Pages/TVShows/Detail.jsx";
 import MovieIndex from "./components/Pages/Movies/Index.jsx";
 import TVShowIndex from "./components/Pages/TVShows/Index.jsx";
+import ContactPage from "./components/Pages/Contact.jsx";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
   {
     path: "/tv-shows/:id",
     element: <TVShowDetailPage />,
+  },
+  {
+    path: "/contact",
+    element: <ContactPage />,
   },
 ]);
 

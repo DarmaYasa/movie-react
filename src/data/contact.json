@@ -1,0 +1,8 @@
+{
+    "name": "John Doe",
+    "email": "johndoe@email.com",
+    "github": {
+        "username": "John Doe",
+        "url": "https://github.com/JohnDoe"
+    }
+}

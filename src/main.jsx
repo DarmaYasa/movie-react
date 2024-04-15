@@ -5,6 +5,8 @@ import "./index.css";
 import HomePage from "./components/Pages/Home.jsx";
 import MovieDetailPage from "./components/Pages/Movies/Detail.jsx";
 import TVShowDetailPage from "./components/Pages/TVShows/Detail.jsx";
+import MovieIndex from "./components/Pages/Movies/Index.jsx";
+import TVShowIndex from "./components/Pages/TVShows/Index.jsx";
 
 const router = createBrowserRouter([
   {
@@ -12,8 +14,16 @@ const router = createBrowserRouter([
     element: <HomePage />,
   },
   {
+    path: "/movies",
+    element: <MovieIndex />,
+  },
+  {
     path: "/movies/:id",
     element: <MovieDetailPage />,
+  },
+  {
+    path: "/tv-shows/",
+    element: <TVShowIndex />,
   },
   {
     path: "/tv-shows/:id",

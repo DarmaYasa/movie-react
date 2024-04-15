@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-const MovieCard = ({ posterPath, title, overview, id }) => {
+const MovieCard = ({ posterPath, title, overview, id, type }) => {
   const moreButtonStyle = {
     background: "none",
     boxShadow: "none",
@@ -13,7 +13,7 @@ const MovieCard = ({ posterPath, title, overview, id }) => {
   const [isMoreClick, setIsMoreClick] = useState(false);
   return (
     <div className="movie-card">
-      <Link to={`/movies/${id}`}>
+      <Link to={`/${type === "movies" ? "movies" : "tv-shows"}/${id}`}>
         <img
           className="cover"
           src={`https://image.tmdb.org/t/p/w1280/${posterPath}`}
@@ -21,7 +21,7 @@ const MovieCard = ({ posterPath, title, overview, id }) => {
         />
       </Link>
       <Link
-        to={`/movies/${id}`}
+        to={`/${type === "movies" ? "movies" : "tv-shows"}/${id}`}
         style={{ textDecoration: "none", color: "inherit" }}
       >
         <h4 className="title">{title}</h4>

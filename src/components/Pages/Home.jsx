@@ -79,6 +79,7 @@ const HomePage = () => {
                 title={movie.title}
                 overview={movie.overview}
                 id={movie.id}
+                type="movies"
               />
             ))
           )}
@@ -110,6 +111,7 @@ const HomePage = () => {
                 title={tvShow.title}
                 overview={tvShow.overview}
                 id={tvShow.id}
+                type="tv-shows"
               />
             ))
           )}

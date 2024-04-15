@@ -16,15 +16,16 @@
 
 .movie-detail > img {
     border-radius: 10px;
-    object-fit: cover;
     width: 100%;
     max-width: 400px;
-    aspect-ratio: 3/4;
+    height:fit-content;
 }
 
-.movie-genre-wrapper {
+.movie-flex-wrapper {
     display: flex;
+    flex-wrap: wrap;
     column-gap: 5px;
+    align-items: center;
 }
 
 .movie-genre-badge {

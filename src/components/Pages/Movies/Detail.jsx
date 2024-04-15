@@ -110,7 +110,7 @@ const MovieDetailPage = () => {
                 </p>
                 <div>
                   <h3>Genres</h3>
-                  <div className="movie-genre-wrapper">
+                  <div className="movie-flex-wrapper">
                     {movie.genres?.map((genre) => (
                       <span className="movie-genre-badge">{genre.name}</span>
                     ))}
@@ -118,16 +118,18 @@ const MovieDetailPage = () => {
                 </div>
                 <div>
                   <h3>Production Companies</h3>
-                  <div className="movie-genre-wrapper">
+                  <div className="movie-flex-wrapper">
                     {movie.production_companies?.map((company) => (
                       <div>
                         <img
-                          width={"150px"}
+                            style={{
+                                maxHeight: '100px',
+                                maxWidth: '150px',
+                            }}
                           src={`https://image.tmdb.org/t/p/w1280/${company.logo_path}`}
+                          alt={`${company.name} (${company.origin_country})`}
+                          title={`${company.name} (${company.origin_country})`}
                         />
-                        <div>
-                          <i>{company.name} ({company.origin_country})</i>
-                        </div>
                       </div>
                     ))}
                   </div>

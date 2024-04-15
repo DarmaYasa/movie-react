@@ -4,21 +4,21 @@ import { APIService } from "../../../services/api.service";
 import "./Detail.css";
 import Layout from "../../Layout/Layout";
 
-const MovieDetailPage = () => {
+const TVShowDetailPage = () => {
   const { id } = useParams();
 
-  const [movie, setMovie] = useState(null);
+  const [tvShow, setTVShow] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     (async () => {
       setIsLoading((prev) => true);
-      await APIService.fetchMovieById(id)
+      await APIService.fetchTVShowById(id)
         .then((res) => {
           if (!res?.status) {
             return;
           }
-          setMovie(res);
+          setTVShow(res);
         })
         .finally(() => {
           setIsLoading((prev) => false);
@@ -36,32 +36,32 @@ const MovieDetailPage = () => {
       >
         {isLoading ? (
           "Loading..."
-        ) : movie ? (
+        ) : tvShow ? (
           <>
-            <div className="movie-detail">
+            <div className="tv-show-detail">
               <img
-                src={`https://image.tmdb.org/t/p/w1280/${movie.poster_path}`}
+                src={`https://image.tmdb.org/t/p/w1280/${tvShow.poster_path}`}
                 alt=""
               />
               <section>
-                <h1>{movie.title}</h1>
-                <i>{movie.tagline}</i>
+                <h1>{tvShow.name}</h1>
+                <i>{tvShow.type}</i>
                 <div>
                   <h3>Overview</h3>
-                  {movie.overview}
+                  {tvShow.overview}
                 </div>
                 <div>
                   <h3>Genres</h3>
-                  <div className="movie-flex-wrapper">
-                    {movie.genres?.map((genre) => (
-                      <span className="movie-genre-badge">{genre.name}</span>
+                  <div className="tv-show-flex-wrapper">
+                    {tvShow.genres?.map((genre) => (
+                      <span className="tv-show-genre-badge">{genre.name}</span>
                     ))}
                   </div>
                 </div>
                 <div>
                   <h3>Production Companies</h3>
-                  <div className="movie-flex-wrapper">
-                    {movie.production_companies?.map((company) => (
+                  <div className="tv-show-flex-wrapper">
+                    {tvShow.production_companies?.map((company) => (
                       <div>
                         <img
                           style={{
@@ -82,38 +82,21 @@ const MovieDetailPage = () => {
                     <tbody>
                       <tr>
                         <td>
-                          <b>IMDB </b>
+                          <b>First Aired Date</b>
                         </td>
-                        <td>
-                          :{" "}
-                          <a
-                            href={`https://www.imdb.com/title/${movie.imdb_id}`}
-                          >{`https://www.imdb.com/title/${movie.imdb_id}`}</a>
-                        </td>
+                        <td>: {tvShow.first_air_date}</td>
                       </tr>
                       <tr>
                         <td>
-                          <b>Released Date</b>
+                          <b>Season(s)</b>
                         </td>
-                        <td>: {movie.release_date}</td>
+                        <td>: {tvShow.number_of_seasons}</td>
                       </tr>
                       <tr>
                         <td>
-                          <b>Revenue</b>
+                          <b>Episode(s)</b>
                         </td>
-                        <td>
-                          : $
-                          {new Intl.NumberFormat("en-US").format(movie.revenue)}
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <b>Budget</b>
-                        </td>
-                        <td>
-                          : $
-                          {new Intl.NumberFormat("en-US").format(movie.budget)}
-                        </td>
+                        <td>: {tvShow.number_of_episodes}</td>
                       </tr>
                     </tbody>
                   </table>
@@ -129,4 +112,4 @@ const MovieDetailPage = () => {
   );
 };
 
-export default MovieDetailPage;
+export default TVShowDetailPage;

@@ -2,6 +2,7 @@ header {
     position: relative;
     z-index: 999;
     background-color: #00a3c8;
+    padding: 10px 30px;
 }
 
 .header {
@@ -9,7 +10,6 @@ header {
     width: 100%;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 30px;
 }
 
 header h1 {
@@ -22,7 +22,7 @@ header nav {
     gap: 20px;
 }
 
-header nav a {
+header a {
     text-decoration: none;
     color: #ffffff;
 }
@@ -33,9 +33,19 @@ header nav a:hover {
 
 header input {
     display: block;
-    width: 250px;
+    width: 100%;
     border-radius: 10px;
     padding: 10px 20px;
     border: 1px solid #eaeaea;
     box-shadow: none;
+}
+
+main {
+    min-height: 100vh;
+}
+
+footer {
+    background-color: #00a3c8;
+    padding: 10px 30px;
+    color: #ffffff;
 }

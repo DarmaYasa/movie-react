@@ -47,7 +47,7 @@ const TVShowIndex = () => {
           {tvShows?.map((tvShow) => (
             <MovieCard
               posterPath={tvShow.poster_path}
-              title={tvShow.title}
+              title={tvShow.name}
               overview={tvShow.overview}
               id={tvShow.id}
               type="tv-shows"

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { APIService } from "../../../services/api.service";
 import "./Detail.css";
@@ -54,7 +54,7 @@ const TVShowDetailPage = () => {
                   <h3>Genres</h3>
                   <div className="tv-show-flex-wrapper">
                     {tvShow.genres?.map((genre) => (
-                      <span className="tv-show-genre-badge">{genre.name}</span>
+                      <span key={genre.name} className="tv-show-genre-badge">{genre.name}</span>
                     ))}
                   </div>
                 </div>
@@ -62,7 +62,7 @@ const TVShowDetailPage = () => {
                   <h3>Production Companies</h3>
                   <div className="tv-show-flex-wrapper">
                     {tvShow.production_companies?.map((company) => (
-                      <div>
+                      <div key={company.id}>
                         <img
                           style={{
                             maxHeight: "100px",
@@ -75,6 +75,15 @@ const TVShowDetailPage = () => {
                       </div>
                     ))}
                   </div>
+                </div>
+                <div>
+                    {
+                        React.Children.toArray([
+                            ...tvShow.seasons?.map((item, index) => {
+                                return (<div>{item.air_date}</div>);
+                            })
+                        ])
+                    }
                 </div>
                 <div>
                   <h3>More Information</h3>

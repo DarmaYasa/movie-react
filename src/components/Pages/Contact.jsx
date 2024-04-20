@@ -83,6 +83,12 @@ const ContactPage = () => {
                 </a>
               </td>
             </tr>
+            <tr>
+              <td>Alamat: </td>
+              <td>
+                {contactJSON.address}
+              </td>
+            </tr>
           </tbody>
         </table>
       </div>

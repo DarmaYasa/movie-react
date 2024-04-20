@@ -15,7 +15,7 @@ const MovieDetailPage = () => {
       setIsLoading((prev) => true);
       await APIService.fetchMovieById(id)
         .then((res) => {
-          if (!res?.status) {
+          if (res?.status_code) {
             return;
           }
           setMovie(res);

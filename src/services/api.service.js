@@ -52,6 +52,7 @@ const fetchMovieById = async (id) => {
     language: "en-US",
   });
   const url = `https://api.themoviedb.org/3/movie/${id}?` + params;
+  console.log(url);
   const options = {
     method: "GET",
     headers: {

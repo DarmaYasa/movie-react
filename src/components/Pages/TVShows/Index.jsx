@@ -21,6 +21,20 @@ const TVShowIndex = () => {
     setCurrPage(currPage + 1);
   };
 
+  const changePage = async (page) => {
+    setIsLoading(true);
+    await APIService.fetchTVShows(page)
+      .then((data) => setTVShows(data))
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+    console.log(page);
+    setCurrPage(page);
+  };
+
   useEffect(() => {
     (async () => {
       setIsLoading(true);
@@ -55,14 +69,20 @@ const TVShowIndex = () => {
           ))}
         </div>
 
-        <button
+        <div>
+            <button type="button" disabled={(currPage-1) <= 0} onClick={() => changePage(currPage-1)}>Prev</button>
+            Page: {currPage}
+            <button type="button" onClick={() => changePage(currPage+1)}>Next</button>
+        </div>
+
+        {/* <button
           className="btn-load-more"
           type="button"
           onClick={() => loadMore()}
           disabled={isLoading}
         >
           {isLoading ? "Loading..." : "Load More"}
-        </button>
+        </button> */}
       </div>
     </Layout>
   );

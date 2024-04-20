@@ -73,14 +73,14 @@ const Layout = ({ children }) => {
               placeholder="Search..."
               onChange={(e) => setSearch(e.target.value)}
               onBlur={() => {
-                setTimeout(() => setResults({ movies: [], tvShows: [] }), 200);
+                setTimeout(() => setResults({ movies: [], tvShows: [] }), 500);
               }}
               value={search}
             />
             {results.movies.length + results.tvShows.length > 0 && (
               <div className="search-results-wrapper">
                 {allResults?.map((item) => (
-                  <Link key={item.id} to={`/${item.type}/${item.id}`}>
+                  <Link key={item.id} to={`/${item.type}/${item.id}`} target="_blank">
                     {item.title}{" "}
                     <i>({item.type === "movies" ? "Movies" : "TV Shows"})</i>
                   </Link>
